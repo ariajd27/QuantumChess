@@ -17,6 +17,11 @@ while True:
 
 	ch.visualize_superposition(game)
 
+	#The active player is checkmated if they are checkmated in every universe
+	if all(instance.is_checkmate() for instance in game.instances):
+		print('Checkmate!')
+		break
+
 	move = input('Input a move:') #ex. d2d4 for normal moves, q d2 for quantum moves.
 
 	if move == 'exit':
