@@ -23,11 +23,20 @@ while True:
 		break
 
 	elif move[0] == 'q': #Placing a piece in a superposition between all its possible moves.
-		start_square = move[-2:]
-		game.superposition(from_square=start_square)
+		try:
+			start_square = move[-2:]
+			game.superposition(from_square=start_square)
+		except Exception as e:
+			print(str(e) + ' Please try again.')
+			continue
 
 	elif len(move) == 4: #Normal move.
-		game.move(move)
+		try:
+			game.move(move)
+		except Exception as e:
+			print(str(e) + ' Please try again.')
+			continue
 
 	else:
 		print('Unknown move.\nex: \'d2d4\' for normal moves, \'q d2\' for quantum moves.')
+
